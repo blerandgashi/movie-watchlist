@@ -1,0 +1,50 @@
+body{
+  margin: 0;
+}
+*{
+  box-sizing: border-box;
+}
+#searchMoviePart{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img.png');
+  background-size: cover;
+  background-position: calc(0% + 10px) calc(20% - 10px);
+  height: 208px;
+  position: relative;
+}
+
+.movie-part{
+  width: 500px;
+  height: 208px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+a{
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.searchPart{
+  width: 500px;
+  display: flex;
+  position: absolute;
+  top: 190px;
+  left: 70px;
+}
+input{
+  padding: 15px;
+  width: 400px;
+  height: 38px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid gray;
+}
+#searchBtn{
+  width: 100px;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(255, 0, 0);
+  border: 1px solid gray;
+  border-radius: 0 5px 5px 0;
+}
