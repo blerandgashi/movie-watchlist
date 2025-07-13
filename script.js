@@ -1,17 +1,52 @@
-class Solution {
-    onesComplement(s, n) {
-        // code here
-        
-    }
-}
+const searchBtn = document.querySelector('#searchBtn');
+const movieContainer = document.querySelector("#movieResults");
 
-let n = 76;
-let pow = Math.pow(n, 2);
 
-let str = n + "";
-let str1 = pow + "";
-if (str.endsWith(str1[str1.length-1])) {
-  console.log('auto');
-}else{
-  console.log('not auto');
+searchBtn.addEventListener("click", function(){
+  const searchedMovie = document.querySelector("input").value;
+  const apiKey = 'd577378e'
+
+  fetch(`https://www.omdbapi.com/?s=${searchedMovie}&apikey=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      
+      movieContainer.innerHTML = "";
+      data.Search.forEach(movie => {
+        movieContainer.innerHTML += `
+        <div id="showMovie">
+          <img src="${movie.Poster}" alt="">
+          <div class="description">
+            <h2 id="movie-title">${movie.Title}</h2>
+
+            <div class="shortDesc">
+              <span>${movie.Year}</span>
+              <span>Type: ${movie.Type}</span>
+              <span><button class="add" data-id="${movie.imdbID}">+</button>Watchlist</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+        `
+
+        document.querySelectorAll(".add").forEach(button => {
+          button.addEventListener("click", function(){
+            const movieId = this.dataset.id;
+            const movieToAdd = data.Search.find(m => m.imdbID == movieId)
+            console.log(movieToAdd);
+
+            addToWatchlist(movieToAdd);
+          })
+        })
+      })
+    })
+})
+
+function addToWatchlist(movie){
+  let watchlist = JSON.parse(localStorage.getItem("watchlist") || [])
+
+  if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
+    watchlist.push(movie);
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  }
 }

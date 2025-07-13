@@ -48,3 +48,40 @@ input{
   border: 1px solid gray;
   border-radius: 0 5px 5px 0;
 }
+
+img{
+  width: 120px;
+}
+#movieResults{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 483px;
+  margin: 50px auto 20px auto;
+}
+#showMovie{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.shortDesc{
+  display: flex;
+  gap: 20px;
+}
+.description-paragraph{
+  margin-top: 10px;
+  color: rgb(135, 135, 135);
+}
+.add{
+  margin-right: 5px;
+  border-radius: 50%;
+  border: 0;
+  background-color: black;
+  color: white;
+}
+#movie-title{
+  margin-bottom: 10px;
+}
