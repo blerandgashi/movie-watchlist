@@ -43,7 +43,7 @@ searchBtn.addEventListener("click", function(){
 })
 
 function addToWatchlist(movie){
-  let watchlist = JSON.parse(localStorage.getItem("watchlist") || [])
+  let watchlist = JSON.parse(localStorage.getItem("watchlist") || '[]')
 
   if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
     watchlist.push(movie);

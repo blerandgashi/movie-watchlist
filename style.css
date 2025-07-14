@@ -52,7 +52,7 @@ input{
 img{
   width: 120px;
 }
-#movieResults{
+#movieResults, .movieWatchList{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -76,6 +76,7 @@ img{
   color: rgb(135, 135, 135);
 }
 .add{
+  cursor: pointer;
   margin-right: 5px;
   border-radius: 50%;
   border: 0;
@@ -84,4 +85,8 @@ img{
 }
 #movie-title{
   margin-bottom: 10px;
+}
+
+.selectMovie{
+  text-align: center;
 }
