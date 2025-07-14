@@ -16,7 +16,7 @@ if (watchlist.length === 0) {
             <div class="shortDesc">
               <span>${movie.Year}</span>
               <span>Type: ${movie.Type}</span>
-              <span><button class="add" onclick="removeFromWatchlist('${movie.imdbID}')">-</button>Remove</span>
+              <span><button class="remove" onclick="removeFromWatchlist('${movie.imdbID}')">-</button>Remove</span>
             </div>
           </div>
         </div>

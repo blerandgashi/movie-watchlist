@@ -2,13 +2,12 @@ const searchBtn = document.querySelector('#searchBtn');
 const movieContainer = document.querySelector("#movieResults");
 
 
-searchBtn.addEventListener("click", function(){
+searchBtn.addEventListener("click", async function(){
   const searchedMovie = document.querySelector("input").value;
   const apiKey = 'd577378e'
 
-  fetch(`https://www.omdbapi.com/?s=${searchedMovie}&apikey=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
+  const response = await fetch(`https://www.omdbapi.com/?s=${searchedMovie}&apikey=${apiKey}`)
+  const data = await response.json()
       console.log(data);
       
       movieContainer.innerHTML = "";
@@ -40,7 +39,6 @@ searchBtn.addEventListener("click", function(){
         })
       })
     })
-})
 
 function addToWatchlist(movie){
   let watchlist = JSON.parse(localStorage.getItem("watchlist") || '[]')
